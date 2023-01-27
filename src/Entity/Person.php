@@ -31,6 +31,11 @@ class Person
     #[ORM\Column(length: 255)]
     private ?string $zipCode = null;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+    }
+
     public function getId(): ?int
     {
         return $this->id;
